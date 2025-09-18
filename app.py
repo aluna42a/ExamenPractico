@@ -23,9 +23,17 @@ with app.app_context():
 @app.route('/')
 def index():
     creditos = Credit.query.all()
-    clientes = [c.cliente for c in creditos]
-    montos = [c.monto for c in creditos]
 
+    # Agrupar montos por cliente para la gráfica de barras
+    clientes_dict = {}
+    for c in creditos:
+        nombre = c.cliente
+        clientes_dict[nombre] = clientes_dict.get(nombre, 0) + c.monto
+
+    clientes = list(clientes_dict.keys())
+    montos = list(clientes_dict.values())
+
+    # Distribución de montos para la gráfica de pastel (por rango)
     rangos = ['0-999', '1000-4999', '5000-9999', '10000+']
     rango_montos = [0, 0, 0, 0]
     for c in creditos:
@@ -38,7 +46,14 @@ def index():
         else:
             rango_montos[3] += 1
 
-    return render_template('index.html', creditos=creditos, clientes=clientes, montos=montos, rangos=rangos, rango_montos=rango_montos)
+    return render_template(
+        'index.html',
+        creditos=creditos,
+        clientes=clientes,
+        montos=montos,
+        rangos=rangos,
+        rango_montos=rango_montos
+    )
 
 @app.route('/add', methods=['GET', 'POST'])
 def add_credit():
