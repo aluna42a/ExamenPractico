@@ -25,6 +25,7 @@ matplotlib==3.6.3
 pandas==1.5.3
 
 --INSTALACION--
+
 1.- Clonar el repositorio:
 git clone https://github.com/aluna42a/ExamenPractico.git
 cd REPOSITORIO PROPIO
