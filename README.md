@@ -16,28 +16,27 @@ Requisitos
 Dependencias (incluidas en requirements.txt):
 Flask==3.1.2
 Flask-SQLAlchemy==3.1.1
-Flask-WTF==1.2.2
-WTForms==3.2.1
-Jinja2==3.1.6
-Werkzeug==3.1.3
-numpy==1.24.2
-matplotlib==3.6.3
-pandas==1.5.3
+WTForms==3.2.1 
 
 --INSTALACION--
 
 1.- Clonar el repositorio:
 git clone https://github.com/aluna42a/ExamenPractico.git
-cd REPOSITORIO PROPIO
+
+Se descargara el repositorio. 
+Abrir la carpeta donde se encuentra el repositorio. 
+cd ExamenPractico
 
 2.-Crear un entorno virtual(es opcional pero recomendado):
 python -m venv venv 
 
 3.-Activar el entorno virtual:
 Windows:
-
+cmd:
 venv\Scripts\activate
 
+powershell:
+.\venv\Scripts\Activate.ps1
 
 Linux/Mac:
 
